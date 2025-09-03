@@ -1,0 +1,25 @@
+openapi: 3.0.3
+info:
+  title: STD24038
+  description: This is a specification of STD24038
+  version: 1.0.0
+servers:
+  - url: 'https://localhost:8080'
+paths:
+  /health:
+    get:
+      responses:
+        200:
+          description: return Ok
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: Ok
+
+  /phones:
+
+  /phones/{id}:
+
+  /phones/{id}/characteristics:
+  
