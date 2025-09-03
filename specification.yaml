@@ -28,6 +28,14 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/phones'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/phones'
 
 
   /phones/{id}:
@@ -51,6 +59,23 @@ paths:
 
 
   /phones/{id}/characteristics:
+    put:
+      responses:
+        200:
+          description: put
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/characteristics'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/characteristics'
+
+
+
 
 components:
   schemas:
@@ -67,13 +92,16 @@ components:
           type: string
           example: abcd
         characteristics:
-          properties:
-            ram_memory:
-              type: number
-              example: 12
-            rom_memory:
-              type: number
-              example: 64
+          $ref: '#/components/schemas/characteristics'
+    characteristics:
+      properties:
+        ram_memory:
+          type: number
+          example: 12
+        rom_memory:
+          type: number
+          example: 64
+
   parameters:
     id:
       name: id
