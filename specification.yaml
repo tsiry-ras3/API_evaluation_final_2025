@@ -18,8 +18,44 @@ paths:
                 example: Ok
 
   /phones:
+    post:
+      responses:
+        201:
+          description: created
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/phones'
+
 
   /phones/{id}:
 
   /phones/{id}/characteristics:
+
+components:
+  schemas:
+    phones:
+      properties:
+        identifier:
+          type: string
+          format: uui
+          example: S239
+        brand:
+          type: string
+          example: flsdf
+        model:
+          type: string
+          example: abcd
+        characteristics:
+          properties:
+            ram_memory:
+              type: number
+              example: 12
+            rom_memory:
+              type: number
+              example: 64
+
+
   
