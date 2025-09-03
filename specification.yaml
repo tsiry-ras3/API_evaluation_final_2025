@@ -31,6 +31,17 @@ paths:
 
 
   /phones/{id}:
+    parameters:
+      - $ref: '#/components/parameters/id'
+    get:
+      responses:
+        200:
+          description: return phone
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/phones'
+
 
   /phones/{id}/characteristics:
 
@@ -56,6 +67,12 @@ components:
             rom_memory:
               type: number
               example: 64
+  parameters:
+    id:
+      name: id
+      in: path
+      required: true
+      example: 1
 
 
   
